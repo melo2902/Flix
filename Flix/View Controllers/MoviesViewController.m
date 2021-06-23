@@ -49,16 +49,16 @@
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
                
-               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:(UIAlertControllerStyleAlert)];
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies" message:@"The internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
                
-//               // create an OK action
-//               UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-//                    handler:^(UIAlertAction * _Nonnull action) {
-//                      // handle response here.
-//                   ];
-//                       // add the OK action to the alert controller
-//                       [alert addAction:okAction];
-//                   }
+               // create an OK action
+               UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                  style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * _Nonnull action) {
+                        // handle response here.
+                }];
+               // add the OK action to the alert controller
+               [alert addAction:okAction];
             
                 [self presentViewController:alert animated:YES completion:^{
                     // optional code for what happens after the alert controller has finished presenting
