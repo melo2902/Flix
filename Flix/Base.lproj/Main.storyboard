@@ -79,6 +79,7 @@
                     <navigationItem key="navigationItem" title="Movies" id="7Ow-EB-OJL"/>
                     <connections>
                         <outlet property="activityIndicator" destination="s51-Ca-8cL" id="sgs-Ct-elh"/>
+                        <outlet property="searchBar" destination="qK8-YU-0JC" id="Ob7-kp-yP2"/>
                         <outlet property="tableView" destination="zLR-px-ilT" id="NtH-YI-IBZ"/>
                     </connections>
                 </viewController>
