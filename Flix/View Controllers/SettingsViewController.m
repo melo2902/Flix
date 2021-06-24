@@ -18,9 +18,19 @@
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)includeAMSwitch:(id)sender {
-    UISwitch *includeAM = (UISwitch *) sender;
-    NSLog(@"%@", includeAM.on ? @"On" : @"Off");
+
+- (IBAction)onIncludeAMChange:(id)sender {
+}
+
+- (IBAction)onMovieOrderChange:(id)sender {
+    UISwitch *orderSwitch = (UISwitch *)sender;
+  
+    BOOL boolValue = [orderSwitch isOn];
+    NSLog(boolValue ? @"Yes" : @"No");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:[orderSwitch isOn] forKey:@"orderFromLatest"];
+    [defaults synchronize];
 }
 
 /*

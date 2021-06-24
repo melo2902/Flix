@@ -76,6 +76,7 @@
 }
 
 //Figure out how to dismiss the modal
+// Button at top
 //[self dismissViewControllerAnimated:YES completion:nil];
 
 /*

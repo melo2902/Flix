@@ -68,7 +68,11 @@
               
                self.movies = dataDictionary[@"results"];
                
-               NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"release_date" ascending:YES];
+               NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+               BOOL orderValue = [defaults boolForKey:@"orderFromLatest"];
+               
+               NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"release_date" ascending:orderValue];
+               
                NSArray *orderedMovies = [self.movies sortedArrayUsingDescriptors:@[sd]];
                
                self.filteredMovies = orderedMovies;
@@ -132,12 +136,14 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    UICollectionViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.filteredMovies[indexPath.row];
-    
-    DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.movie = movie;
+    if ([segue.identifier isEqual:@"detailsGridSegue"]) {
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        NSDictionary *movie = self.filteredMovies[indexPath.row];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.movie = movie;
+    }
 }
 
 @end
