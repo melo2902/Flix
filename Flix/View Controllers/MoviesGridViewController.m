@@ -67,7 +67,12 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
               
                self.movies = dataDictionary[@"results"];
-               self.filteredMovies = self.movies;
+               
+               NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"release_date" ascending:YES];
+               NSArray *orderedMovies = [self.movies sortedArrayUsingDescriptors:@[sd]];
+               
+               self.filteredMovies = orderedMovies;
+               
                [self.collectionView reloadData];
            }
        }];
@@ -99,23 +104,6 @@
     [self.searchBar resignFirstResponder];
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    UICollectionViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.filteredMovies[indexPath.row];
-    
-    DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.movie = movie;
-    
-    NSLog(@"Tapping on a movie!");
-}
-
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
@@ -135,6 +123,21 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.filteredMovies.count;
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    UICollectionViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
+    
+    DetailsViewController *detailsViewController = [segue destinationViewController];
+    detailsViewController.movie = movie;
 }
 
 @end

@@ -2,7 +2,7 @@
 
 Flix is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 6.5 hours spent in total
+Time spent: 9 hours spent in total
 
 ## User Stories
 
@@ -19,7 +19,7 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 
 - [x] User can tap a poster in the collection view to see a detail screen of that movie
-- [x] User can search for a movie.
+- [x] User can search for a movie by title or by keyword.
 - [x] All images fade in as they are loading.
 - [ ] User can view the large movie poster by tapping on a cell.
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
@@ -32,6 +32,8 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x] Users can view the movie's trailer when tapping on the movie's poster
+- [x] Allow users to order the results based on movie's release date
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 

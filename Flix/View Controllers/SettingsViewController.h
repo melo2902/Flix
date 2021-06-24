@@ -1,5 +1,5 @@
 //
-//  VideoViewController.h
+//  SettingsViewController.h
 //  Flix
 //
 //  Created by mwen on 6/24/21.
@@ -9,8 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VideoViewController : UIViewController
-@property (nonatomic, strong) NSNumber *movie_id;
+@interface SettingsViewController : UIViewController
+
 @end
 
 NS_ASSUME_NONNULL_END

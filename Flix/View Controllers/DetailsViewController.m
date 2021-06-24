@@ -7,6 +7,8 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "VideoViewController.h"
+
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
@@ -41,14 +43,22 @@
     [self.synopsisLabel sizeToFit];
 }
 
-/*
+- (IBAction)openVideo:(id)sender {
+   
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    NSNumber *movie_id = self.movie[@"id"];
+    
+    VideoViewController *videoViewController = [segue destinationViewController];
+    videoViewController.movie_id = movie_id;
 }
-*/
+
 
 @end
