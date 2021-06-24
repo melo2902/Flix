@@ -137,8 +137,6 @@
     if (searchText.length != 0) {
         
         self.filteredMovies = [self.movies filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title contains[c] %@)", searchText]];
-
-        NSLog(@"hello%@", self.filteredMovies);
         
     }
     else {

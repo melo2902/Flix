@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="qK8-YU-0JC">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by movie title" id="qK8-YU-0JC">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5I1-7q-tXx">
-                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="132" width="390" height="712"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ScE-i9-Dws">
@@ -127,6 +127,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="CbD-mP-Ru0">
+                                <rect key="frame" x="0.0" y="88" width="390" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WwN-5j-7AC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,6 +139,7 @@
                     <navigationItem key="navigationItem" id="oEx-Nh-rQL"/>
                     <connections>
                         <outlet property="collectionView" destination="5I1-7q-tXx" id="aBb-t7-phH"/>
+                        <outlet property="searchBar" destination="CbD-mP-Ru0" id="6eP-XE-b8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knd-nH-85I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -262,11 +268,11 @@
             </objects>
             <point key="canvasLocation" x="17" y="11"/>
         </scene>
-        <!--Collection View-->
+        <!--Upcoming Movies-->
         <scene sceneID="4jD-NM-Qmw">
             <objects>
                 <navigationController id="BVO-aU-Mqb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection View" image="reel_tabbar_icon" id="eyu-nx-713"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming Movies" image="ticket_tabbar_icon" id="eyu-nx-713"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yRe-2O-NJo">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -281,11 +287,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vqc-57-jnq"/>
+        <segue reference="bPv-Qp-GM7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
-        <image name="reel_tabbar_icon" width="25" height="25"/>
+        <image name="ticket_tabbar_icon" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
