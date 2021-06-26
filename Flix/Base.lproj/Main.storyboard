@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Svs-mu-jri">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Svs-mu-jri">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +12,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hsM-G9-g3y"/>
+                        <viewControllerLayoutGuide type="bottom" id="9N7-Wm-kwa"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +38,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q89-lf-x9H">
-                                                    <rect key="frame" x="20" y="11" width="126" height="167"/>
+                                                    <rect key="frame" x="20" y="11" width="126" height="156"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                                 </imageView>
@@ -72,7 +75,6 @@
                                 <color key="color" systemColor="systemGrayColor"/>
                             </activityIndicatorView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                     </view>
@@ -93,39 +95,43 @@
             </objects>
             <point key="canvasLocation" x="16.923076923076923" y="856.6350710900474"/>
         </scene>
-        <!--Movies Grid View Controller-->
+        <!--Upcoming Movies-->
         <scene sceneID="IiY-gy-jOF">
             <objects>
                 <viewController id="cKi-lG-Ols" customClass="MoviesGridViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nti-ZC-YSb"/>
+                        <viewControllerLayoutGuide type="bottom" id="9IP-Zg-4j2"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6GH-ie-sjW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5I1-7q-tXx">
-                                <rect key="frame" x="0.0" y="132" width="390" height="712"/>
+                                <rect key="frame" x="0.0" y="139" width="390" height="705"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ScE-i9-Dws">
-                                    <size key="itemSize" width="124" height="175"/>
+                                    <size key="itemSize" width="170" height="272"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="hcF-Kj-L0M" customClass="MovieCollectionCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="272"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ePP-sw-PRA">
-                                            <rect key="frame" x="0.0" y="0.0" width="169" height="272"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="267"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzD-gJ-Iah">
-                                                    <rect key="frame" x="0.0" y="-10" width="180" height="293"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="277"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="169" height="272"/>
+                                        <size key="customSize" width="170" height="267"/>
                                         <connections>
                                             <outlet property="posterView" destination="mzD-gJ-Iah" id="nlZ-OB-Qak"/>
                                             <segue destination="gcZ-3w-IKw" kind="show" identifier="detailsGridSegue" id="bPv-Qp-GM7"/>
@@ -133,16 +139,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="CbD-mP-Ru0">
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search by keyword" translatesAutoresizingMaskIntoConstraints="NO" id="rP2-tR-0Dh">
                                 <rect key="frame" x="0.0" y="88" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="WwN-5j-7AC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oEx-Nh-rQL">
+                    <navigationItem key="navigationItem" title="Upcoming Movies" id="oEx-Nh-rQL">
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="OCR-TX-mTU">
                             <connections>
                                 <segue destination="Ep4-4A-9KP" kind="show" identifier="settingsGridSegue" id="b6k-ft-yqO"/>
@@ -151,7 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="5I1-7q-tXx" id="aBb-t7-phH"/>
-                        <outlet property="searchBar" destination="CbD-mP-Ru0" id="6eP-XE-b8R"/>
+                        <outlet property="searchBar" destination="rP2-tR-0Dh" id="jJp-fe-aTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Knd-nH-85I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,43 +186,35 @@
         <scene sceneID="scU-83-u69">
             <objects>
                 <viewController id="Ep4-4A-9KP" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8OO-z8-m5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z8t-JI-VJr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7tA-kW-arI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrk-Sm-r9N">
-                                <rect key="frame" x="313" y="120" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="onIncludeAMChange:" destination="Ep4-4A-9KP" eventType="valueChanged" id="5ez-P6-hh7"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Include Adult Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xac-iH-Y2w">
-                                <rect key="frame" x="26" y="120" width="211" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xS0-m1-dDI">
-                                <rect key="frame" x="313" y="191" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="onMovieOrderChange:" destination="Ep4-4A-9KP" eventType="valueChanged" id="b3K-cS-uDK"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order upcoming movies grid from lastest to oldest" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nr-ya-GuA">
-                                <rect key="frame" x="26" y="181" width="238" height="50"/>
+                                <rect key="frame" x="29" y="114" width="238" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xS0-m1-dDI">
+                                <rect key="frame" x="309" y="124" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onMovieOrderChange:" destination="Ep4-4A-9KP" eventType="valueChanged" id="b3K-cS-uDK"/>
+                                </connections>
+                            </switch>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="rfX-Hx-zpw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="NpI-Ir-Awd"/>
+                    <connections>
+                        <outlet property="upcomingMoviesSwitch" destination="xS0-m1-dDI" id="z0E-Ne-hdO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiA-Xq-e9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,12 +224,16 @@
         <scene sceneID="FP4-c8-OLL">
             <objects>
                 <viewController id="gcZ-3w-IKw" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3jW-3T-o2s"/>
+                        <viewControllerLayoutGuide type="bottom" id="1hg-bd-P4E"/>
+                    </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" id="neZ-y4-uAA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-Vx-hqI">
-                                <rect key="frame" x="0.0" y="-88" width="390" height="493"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="405"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oue-0S-WOg">
@@ -240,17 +241,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QU-op-w4G">
-                                <rect key="frame" x="128" y="413" width="262" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-WH-DQ5">
+                                <rect key="frame" x="16" y="493" width="358" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDB-WH-DQ5">
-                                <rect key="frame" x="16" y="493" width="358" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">A group of unlikely heroes from across the Korean peninsula try to save the day after a volcano erupts on the mythical and majestic Baekdu Mountain.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -259,11 +254,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="openVideo:" destination="gcZ-3w-IKw" eventType="touchUpInside" id="VXJ-vt-hZ9"/>
-                                    <segue destination="zSe-VC-MSF" kind="presentation" id="xuh-V4-aMc"/>
+                                    <segue destination="zSe-VC-MSF" kind="presentation" identifier="openTrailersSegue" id="xuh-V4-aMc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QU-op-w4G">
+                                <rect key="frame" x="128" y="413" width="246" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="tto-VA-hqw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="systemBackgroundColor"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="rl4-mo-eG3"/>
@@ -285,6 +289,10 @@
         <scene sceneID="iZn-sk-Axu">
             <objects>
                 <viewController id="zSe-VC-MSF" customClass="VideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e8t-e0-gTS"/>
+                        <viewControllerLayoutGuide type="bottom" id="iIi-Bt-Z7T"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Q6f-07-P0a">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,7 +307,6 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="947-KZ-Gam"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
@@ -348,7 +355,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vqc-57-jnq"/>
+        <segue reference="bPv-Qp-GM7"/>
         <segue reference="b6k-ft-yqO"/>
     </inferredMetricsTieBreakers>
     <resources>

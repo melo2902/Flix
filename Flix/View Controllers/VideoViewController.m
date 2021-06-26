@@ -57,7 +57,8 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
               
                NSArray *trailers = dataDictionary[@"results"];
-               NSDictionary *movie_trailer = [trailers objectAtIndex:1];
+               
+               NSDictionary *movie_trailer = [trailers objectAtIndex:0];
                NSString *key = movie_trailer[@"key"];
                                         
                NSString *baseVideoURLString = @"https://www.youtube.com/watch?v=";
@@ -74,10 +75,6 @@
        }];
     [task resume];
 }
-
-//Figure out how to dismiss the modal
-// Button at top
-//[self dismissViewControllerAnimated:YES completion:nil];
 
 /*
 #pragma mark - Navigation

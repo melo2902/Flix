@@ -14,15 +14,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
-
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = self.movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
@@ -39,6 +37,8 @@
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
     
+    self.titleLabel.adjustsFontSizeToFitWidth = true;
+    self.synopsisLabel.adjustsFontSizeToFitWidth = true;
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
 }
@@ -54,10 +54,13 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    NSNumber *movie_id = self.movie[@"id"];
+    if ([segue.identifier isEqual:@"openTrailersSegue"]) {
+        NSNumber *movie_id = self.movie[@"id"];
+        
+        VideoViewController *videoViewController = [segue destinationViewController];
+        videoViewController.movie_id = movie_id;
+    }
     
-    VideoViewController *videoViewController = [segue destinationViewController];
-    videoViewController.movie_id = movie_id;
 }
 
 

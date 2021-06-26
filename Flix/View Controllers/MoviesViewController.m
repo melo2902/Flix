@@ -9,9 +9,8 @@
 #import "MovieCell.h"
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
-#import <CCDropDownMenus/CCDropDownMenus.h>
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CCDropDownMenuDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
@@ -34,19 +33,9 @@
     
     [self fetchMovies];
     
-//    CGRect viewFrame = self.tableView.frame;
-//
-//    ManaDropDownMenu *menu = [[ManaDropDownMenu alloc] initWithFrame:viewFrame title:@"Sort by"];
-//        menu.delegate = self;
-//        menu.numberOfRows = 4;
-//    menu.textOfRows = @[@"Popularity: Low to High", @"Popularity: High to Low", @"Release Date: Most recent to",  @"Release Date: Least recent to"];
-//          [self.view addSubview:menu];
-    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    
-    
 }
 
 - (void)fetchMovies {
@@ -77,17 +66,8 @@
            } else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                
-               NSLog(@"%@", dataDictionary);
-               
                self.movies = dataDictionary[@"results"];
-               
-//             Ordering the movies by popularity
-               NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"popularity" ascending:NO];
-               NSArray *orderedMovies = [self.movies sortedArrayUsingDescriptors:@[sd]];
-               
-               NSLog(@"hello %@", orderedMovies);
-               
-               self.filteredMovies = orderedMovies;
+               self.filteredMovies = self.movies;
                
                [self.tableView reloadData];
            }
@@ -144,18 +124,18 @@
             // do something for the failure condition
         }];
     
-//    cell.posterView.image = nil;
-//    [cell.posterView setImageWithURL:posterURL];
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Do some stuff when the row is selected
+ [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {
-        
         self.filteredMovies = [self.movies filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title contains[c] %@)", searchText]];
-
     }
     else {
         self.filteredMovies = self.movies;
@@ -174,19 +154,6 @@
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
 }
-
-//- (void)dropDownMenu:(CCDropDownMenu *)dropDownMenu didSelectRowAtIndex:(NSInteger)index {
-//    if (index == 0){
-//      NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"popularity" ascending:NO];
-//      self.filteredMovies = [self.filteredMovies sortedArrayUsingDescriptors:@[sd]];
-//    } else if (index == 1) {
-//        NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"popularity" ascending:YES];
-//        self.filteredMovies = [self.filteredMovies sortedArrayUsingDescriptors:@[sd]];
-//    } else {
-//        NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"release_date" ascending:YES];
-//        self.filteredMovies = [self.filteredMovies sortedArrayUsingDescriptors:@[sd]];
-//    }
-//}
 
 #pragma mark - Navigation
 

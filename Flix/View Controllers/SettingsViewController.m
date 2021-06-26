@@ -8,25 +8,21 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
-
+@property (weak, nonatomic) IBOutlet UISwitch *upcomingMoviesSwitch;
 @end
 
 @implementation SettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-
-- (IBAction)onIncludeAMChange:(id)sender {
+   
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL orderValue = [defaults boolForKey:@"orderFromLatest"];
+    [_upcomingMoviesSwitch setOn:orderValue animated:YES];
 }
 
 - (IBAction)onMovieOrderChange:(id)sender {
     UISwitch *orderSwitch = (UISwitch *)sender;
-  
-    BOOL boolValue = [orderSwitch isOn];
-    NSLog(boolValue ? @"Yes" : @"No");
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:[orderSwitch isOn] forKey:@"orderFromLatest"];
